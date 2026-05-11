@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<h1>Home Page</h1>
+
+<table border="1" cellpadding="10">
+
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Can Vote</th>
+    </tr>
+
+    {% for student in students %}
+
+    <tr>
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+
+        <td>
+            {% if student.age >= 18 %}
+                Yes
+            {% else %}
+                No
+            {% endif %}
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

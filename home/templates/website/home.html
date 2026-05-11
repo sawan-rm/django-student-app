@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<h1>Welcome to My Django Website</h1>
+
+<p>
+    This is a modern glassmorphism UI built using Django templates.
+</p>
+
+<table>
+
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Can Vote</th>
+    </tr>
+
+    {% for student in students %}
+
+    <tr>
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+
+        <td>
+            {% if student.age >= 18 %}
+                Yes
+            {% else %}
+                No
+            {% endif %}
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}
