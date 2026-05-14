@@ -1,0 +1,113 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="form-wrapper">
+  {% csrf_token%}
+  <h2 class="form-title">Create Recipe</h2>
+  <p class="form-subtitle">Add a new recipe to your collection</p>
+
+  <form method="POST" enctype="multipart/form-data" class="recipe-form">
+    {% csrf_token %}
+
+    <!-- Recipe Name -->
+    <div class="form-group">
+      <label>Recipe Name</label>
+      <input
+        type="text"
+        name="receipe_name"
+        placeholder="e.g. Paneer Butter Masala"
+        required
+      />
+    </div>
+
+    <!-- Description -->
+    <div class="form-group">
+      <label>Description</label>
+      <textarea
+        name="receipe_descrioption"
+        rows="4"
+        placeholder="Describe your recipe..."
+        required
+      ></textarea>
+    </div>
+
+    <!-- Image -->
+    <div class="form-group">
+      <label>Recipe Image</label>
+      <input type="file" name="receipe_img" accept="image/*" />
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="submit-btn">Create Recipe</button>
+  </form>
+</div>
+
+<style>
+  .form-wrapper {
+    max-width: 600px;
+    margin: auto;
+    padding: 40px;
+  }
+
+  .form-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .form-subtitle {
+    color: #cbd5e1;
+    margin-bottom: 25px;
+    font-size: 14px;
+  }
+
+  .recipe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: block;
+    color: #e2e8f0;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+    outline: none;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #60a5fa;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .submit-btn {
+    margin-top: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3b82f6, #9333ea);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+</style>
+
+{% endblock %}
