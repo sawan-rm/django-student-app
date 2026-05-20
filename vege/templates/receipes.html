@@ -39,6 +39,23 @@
     <!-- Submit -->
     <button type="submit" class="submit-btn">Create Recipe</button>
   </form>
+
+  {% comment %} {{receipes}} {% endcomment %}
+  <div class="recipe-list">
+    {% for receipe in receipes %}
+
+    <div class="recipe-card">
+      {% if receipe.receipe_img %}
+      <img src="{{ receipe.receipe_img.url }}" alt="recipe image" />
+      {% endif %}
+
+      <h3>{{ receipe.receipe_name }}</h3>
+
+      <p>{{ receipe.receipe_descrioption }}</p>
+    </div>
+
+    {% endfor %}
+  </div>
 </div>
 
 <style>
@@ -107,6 +124,40 @@
   .submit-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  {% comment %} recipe-list {% endcomment %}
+  .recipe-list {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .recipe-card {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 16px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+
+  .recipe-card h3 {
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  .recipe-card p {
+    color: #cbd5e1;
+    font-size: 14px;
   }
 </style>
 
