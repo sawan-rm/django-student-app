@@ -61,3 +61,10 @@ def update_receipe(request, id):
     context = {'receipe': receipe}
 
     return render(request, 'update_receipes.html', context)
+
+# Authentication
+def Login(request):
+    return render(request, 'login.html')
+
+def register(request):
+    return render(request, 'register.html')

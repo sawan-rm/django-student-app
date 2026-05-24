@@ -28,8 +28,12 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
     path('delete_receipe/<int:id>/', delete_receipe, name='delete_receipe'),
-    path('update_receipe/<int:id>/', update_receipe, name='update_receipe')
-]
+    path('update_receipe/<int:id>/', update_receipe, name='update_receipe'),
+    
+    # Authentication
+    path('login/', Login, name='Login'),
+    path('register/', register, name='register'),
+]   
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

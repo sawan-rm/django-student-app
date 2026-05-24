@@ -1,38 +1,233 @@
 {% extends 'base.html' %}
 
-{% block title %}
-Home
-{% endblock %}
-
 {% block content %}
 
-<h1>Home Page</h1>
+<div class="home-wrapper">
 
-<table border="1" cellpadding="10">
+  <!-- Hero Section -->
+  <section class="hero-section">
 
-    <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Can Vote</th>
-    </tr>
+    <div class="hero-content">
 
-    {% for student in students %}
+      <h1>
+        Discover & Share Amazing Recipes
+      </h1>
 
-    <tr>
-        <td>{{ student.name }}</td>
-        <td>{{ student.age }}</td>
+      <p>
+        Create, manage and explore delicious recipes with a beautiful modern experience.
+      </p>
 
-        <td>
-            {% if student.age >= 18 %}
-                Yes
-            {% else %}
-                No
-            {% endif %}
-        </td>
-    </tr>
+      <div class="hero-buttons">
 
-    {% endfor %}
+        <a href="/receipes/" class="primary-btn">
+          Explore Recipes
+        </a>
 
-</table>
+        <a href="/login/" class="secondary-btn">
+          Login
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-image">
+      <img 
+        src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop"
+        alt="Food"
+      >
+    </div>
+
+  </section>
+
+  <!-- Features -->
+  <section class="features-section">
+
+    <div class="feature-card">
+      <div class="feature-icon">🍲</div>
+      <h3>Create Recipes</h3>
+      <p>
+        Add your favorite dishes with images and descriptions.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <h3>Real-Time Search</h3>
+      <p>
+        Instantly search recipes without reloading the page.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">✨</div>
+      <h3>Modern UI</h3>
+      <p>
+        Enjoy a clean glassmorphism design with smooth interactions.
+      </p>
+    </div>
+
+  </section>
+
+</div>
+
+<style>
+
+  .home-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 80px;
+  }
+
+  /* HERO SECTION */
+
+  .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+
+    min-height: 85vh;
+  }
+
+  .hero-content {
+    flex: 1;
+  }
+
+  .hero-content h1 {
+    font-size: 64px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: white;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+    color: #cbd5e1;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 35px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    padding: 14px 24px;
+    border-radius: 14px;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: 0.3s;
+  }
+
+  .primary-btn {
+    background: linear-gradient(135deg, #3b82f6, #9333ea);
+    color: white;
+  }
+
+  .secondary-btn {
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    backdrop-filter: blur(10px);
+  }
+
+  .primary-btn:hover,
+  .secondary-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 550px;
+    height: 650px;
+
+    object-fit: cover;
+
+    border-radius: 32px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  }
+
+  /* FEATURES */
+
+  .features-section {
+    margin-top: 80px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+
+  .feature-card {
+    padding: 30px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .feature-icon {
+    font-size: 40px;
+    margin-bottom: 18px;
+  }
+
+  .feature-card h3 {
+    font-size: 24px;
+    margin-bottom: 14px;
+    color: white;
+  }
+
+  .feature-card p {
+    color: #cbd5e1;
+    line-height: 1.7;
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 900px) {
+
+    .home-wrapper {
+      padding: 30px;
+    }
+
+    .hero-section {
+      flex-direction: column;
+    }
+
+    .hero-content h1 {
+      font-size: 44px;
+    }
+
+    .hero-image img {
+      height: 450px;
+    }
+
+  }
+
+</style>
 
 {% endblock %}
